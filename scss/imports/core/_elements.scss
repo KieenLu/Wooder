@@ -1,0 +1,68 @@
+.btnmain {
+  border: 2px solid $white-cl;
+  padding: 10px 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: $white-cl;
+  text-transform: uppercase;
+  transition: 0.3s;
+  @include xs {
+    letter-spacing: 2px;
+    font-weight: bold;
+  }
+  i {
+    display: block;
+    margin-left: 15px;
+    position: relative;
+    right: 0;
+    transition: 0.3s;
+  }
+  &:hover {
+    background: $yellow-cl;
+    transition: 0.3s;
+    i {
+      margin-left: 22px;
+      right: -10px;
+      transition: 0.3s;
+    }
+  }
+}
+.btnmore {
+  text-transform: uppercase;
+  color: black;
+  font-weight: bold;
+  font-size: 14px;
+  position: relative;
+  letter-spacing: 2px;
+  img {
+    margin-left: 10px;
+  }
+  &::before {
+    content: "";
+    background-color: $yellow-cl;
+    width: 40px;
+    height: 2px;
+    position: absolute;
+    bottom: -7px;
+  }
+}
+// .btnmore {
+//   text-transform: uppercase;
+//   color: $black-cl;
+//   font-weight: bold;
+//   font-size: 14px;
+//   letter-spacing: 2px;
+//   position: relative;
+//   img {
+//     margin-left: 10px;
+//   }
+//   &::before {
+//     content: "";
+//     width: 35px;
+//     height: 2px;
+//     background: $yellow-cl;
+//     position: absolute;
+//     bottom: -7px;
+//   }
+// }

@@ -1,0 +1,258 @@
+header {
+  height: 80px;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 400;
+  .container-fluid {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: space-between;
+    transition: 2s;
+    .menu {
+      height: 100%;
+      display: flex;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      justify-content: center;
+      align-items: center;
+      li {
+        height: 100%;
+        a {
+          @include midflex();
+          // @include text(16px, fmain, normal, $white-cl, uppercase);
+          font-size: 16px;
+          color: $white-cl;
+          font-family: Proxima;
+          line-height: normal;
+          text-transform: uppercase;
+          text-decoration: none;
+          height: 100%;
+          padding: 0 20px;
+          transition: 0.3s;
+          &:hover {
+            color: $yellow-cl;
+            transition: 0.4s;
+            &::after {
+              content: "";
+              background-color: #bea67c;
+              width: 40px;
+              height: 2px;
+              position: absolute;
+              bottom: 10px;
+              transition: 0.4s;
+            }
+          }
+          &.active {
+            color: $yellow-cl;
+            transition: 0.4s;
+            &::after {
+              content: "";
+              background-color: #bea67c;
+              width: 40px;
+              height: 2px;
+              position: absolute;
+              bottom: 10px;
+              transition: 0.4s;
+            }
+          }
+        }
+      }
+    }
+    .table {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      .lang {
+        // font-size: 16px;
+        // font-family: Proxima;
+        // color: $white-cl;
+        // line-height: normal;
+        // text-decoration: none;
+        // text-transform: uppercase;
+        // position: relative;
+        // @include midflex();
+        position: relative;
+        height: 100%;
+        cursor: pointer;
+        &__current {
+          // display: inline-flex;
+          // cursor: pointer;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          span {
+            font-weight: bold;
+            font-family: Proxima;
+            font-size: 16px;
+            line-height: 22px;
+            color: $white-cl;
+            opacity: 0.5;
+            text-transform: uppercase;
+            text-decoration: none;
+            margin-right: 8px;
+          }
+          i {
+            @include midflex();
+            transition: 0.3s;
+            img {
+              width: 12px;
+            }
+          }
+        }
+        &__select {
+          background-color: #353535;
+          position: absolute;
+          opacity: 0;
+          visibility: hidden;
+          transition: 0.3s;
+          width: auto;
+          @include midflex();
+          flex-direction: column;
+          height: 100%;
+          width: 100%;
+          a {
+            font-family: Proxima;
+            color: $white-cl;
+          }
+        }
+        &.active {
+          .lang__select {
+            opacity: 1;
+            visibility: visible;
+          }
+          .lang__current {
+            i {
+              @include transform(rotateX(180deg));
+              transition: 0.3s;
+            }
+          }
+        }
+      }
+    }
+
+    // #menubtn {
+    //   display: none;
+    // }
+    // .nav {
+    //   display: none;
+    // }
+    // .btnmobile {
+    //   display: none;
+    //   width: 40px;
+    //   height: 22px;
+    //   position: relative;
+    //   z-index: 300;
+    //   cursor: pointer;
+    //   span {
+    //     width: 100%;
+    //     height: 2px;
+    //     display: block;
+    //     background: $yellow-cl;
+    //     position: absolute;
+    //     top: 50%;
+    //     transform: translateY(-50%);
+    //     transition: 0.3s;
+    //   }
+    //   &::before,
+    //   &::after {
+    //     content: "";
+    //     width: 100%;
+    //     height: 2px;
+    //     display: block;
+    //     background: $yellow-cl;
+    //     transform: translateY(-50%);
+    //     transition: 0.3s;
+    //   }
+    //   &::after {
+    //     position: absolute;
+    //     bottom: -2px;
+    //   }
+    // }
+  }
+  &.--bg {
+    background: black;
+    opacity: 1;
+    transition: 2s;
+  }
+}
+@include sm {
+  .header {
+    .container-fluid {
+      background: $black-cl;
+      .menu {
+        display: none;
+      }
+      .btnmobile {
+        display: block;
+      }
+      .nav {
+        display: block;
+        transform: translateX(-100%);
+        transition: all 0.5s;
+        width: 100vw;
+        background: $black-cl;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        opacity: 0;
+      }
+      // #menubtn {
+      //   &:checked {
+      //     & ~ .btnmobile {
+      //       &::after {
+      //         transform: rotate(45deg);
+      //         transform-origin: 90% 10%;
+      //       }
+      //       &::before {
+      //         transform: rotate(-45deg);
+      //         transform-origin: 90% 10%;
+      //       }
+      //       span {
+      //         display: none;
+      //       }
+      //     }
+      //     & ~ .nav {
+      //       transform: translateX(0);
+      //       opacity: 1;
+      //       ul {
+      //         height: 100%;
+      //         width: 100%;
+      //         flex-direction: column;
+      //         justify-content: center;
+      //         @include midflex();
+      //         li {
+      //           width: 100px;
+      //           a {
+      //             color: $white-cl;
+      //             text-transform: uppercase;
+      //             font-family: Proxima;
+      //             align-items: center;
+      //             &:hover {
+      //               color: $yellow-cl;
+      //             }
+      //           }
+      //         }
+      //       }
+      //     }
+      //   }
+      // }
+      .lang {
+        padding-right: 15px;
+      }
+    }
+  }
+}
+@include xs {
+  .header {
+    .table {
+      .lang {
+        padding-right: 15px;
+      }
+    }
+  }
+}

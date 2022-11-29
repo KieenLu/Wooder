@@ -1,0 +1,60 @@
+// css footer
+footer {
+  font-family: Proxima;
+  background: $black-cl;
+  padding: 20px 0;
+  color: $gray-cl;
+  .container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+  }
+  .logoft {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .backtotop {
+    text-transform: uppercase;
+    cursor: pointer;
+    text-align: right;
+    a {
+      color: $gray-cl;
+    }
+  }
+}
+.btnbtt {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  max-width: 100%;
+  max-height: 100%;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.4s;
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  p {
+    writing-mode: vertical-lr;
+    text-transform: uppercase;
+    -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+  }
+}
+@include xs {
+  footer {
+    .container {
+      grid-template-rows: repeat(3, 1fr);
+      grid-template-columns: initial;
+      justify-content: center;
+      align-items: center;
+      .backtotop {
+        text-align: center;
+      }
+    }
+  }
+}
